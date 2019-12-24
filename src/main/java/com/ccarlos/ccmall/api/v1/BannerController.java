@@ -22,7 +22,7 @@ public class BannerController {
      */
     @GetMapping("/test")
     public void test(HttpServletResponse response) throws IOException {
-        response.getWriter().write("Hello 少辉");
+        response.getWriter().write("Hello 商城后端");
 //        return "Hello World";
     }
 }
