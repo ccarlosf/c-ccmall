@@ -2,6 +2,7 @@ package com.ccarlos.ccmall.api.v1;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -21,8 +22,14 @@ public class BannerController {
      * @return: java.lang.String
      */
     @GetMapping("/test")
-    public void test(HttpServletResponse response) throws IOException {
-        response.getWriter().write("Hello 商城后端");
-//        return "Hello World";
+    @ResponseBody
+    public String test(HttpServletResponse response) throws IOException {
+//        response.getWriter().write("Hello 商城后端");
+        //response header text/plain
+        //application/json
+        //new Object()
+        //PostMan
+        //单元测试
+        return "Hello 商城后端";
     }
 }
