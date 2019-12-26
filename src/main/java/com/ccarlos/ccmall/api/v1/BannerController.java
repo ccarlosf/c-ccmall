@@ -1,8 +1,7 @@
 package com.ccarlos.ccmall.api.v1;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -12,7 +11,7 @@ import java.io.IOException;
  * @author: Created by ccarlos
  * @date: 2019/12/23 23:12
  */
-@Controller
+@RestController
 public class BannerController {
 
     /**
@@ -21,15 +20,13 @@ public class BannerController {
      * @date: 2019/12/23 23:13
      * @return: java.lang.String
      */
-    @GetMapping("/test")
-    @ResponseBody
+    //RestFul API
+    //自描述性
+    //host:port/v1/banner/test
+    //header version:v1
+    //url?version = v1
+    @GetMapping("/v1/banner/test")
     public String test(HttpServletResponse response) throws IOException {
-//        response.getWriter().write("Hello 商城后端");
-        //response header text/plain
-        //application/json
-        //new Object()
-        //PostMan
-        //单元测试
         return "Hello 商城后端";
     }
 }
