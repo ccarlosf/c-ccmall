@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @date: 2019/12/26 22:04
  */
 @Component
-@Lazy
 public class Diana {
 
     /**

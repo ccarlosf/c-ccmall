@@ -15,15 +15,19 @@ import java.io.IOException;
  * @date: 2019/12/23 23:12
  */
 @RestController
-@Lazy
 @RequestMapping("/v1/banner")
 public class BannerController {
 
-    @Autowired
+    //    @Autowired
     private Diana diana;
 
     @Autowired
     private BannerService bannerService;
+
+    @Autowired
+    public BannerController(Diana diana) {
+        this.diana = diana;
+    }
 
     /**
      * @description: 测试方法
