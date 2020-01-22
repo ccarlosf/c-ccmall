@@ -3,7 +3,6 @@ package com.ccarlos.ccmall.api.v1;
 import com.ccarlos.ccmall.service.BannerService;
 import com.ccarlos.ccmall.simple.hero.Diana;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +14,7 @@ import java.io.IOException;
  * @date: 2019/12/23 23:12
  */
 @RestController
+@RequestMapping("/v1/banner")
 public class BannerController {
 
     @Autowired
@@ -34,7 +34,7 @@ public class BannerController {
     //host:port/v1/banner/test
     //header version:v1
     //url?version = v1
-    @GetMapping("/v1/banner/test")
+    @GetMapping("/test")
     public String test(HttpServletResponse response) throws IOException {
         diana.r();
         return "Hello 商城后端";
