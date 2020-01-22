@@ -19,15 +19,15 @@ import java.io.IOException;
 public class BannerController {
 
     @Autowired
-    public void setDiana(Diana diana) {
-        this.diana = diana;
-    }
-
-    //    @Autowired
     private Diana diana;
 
     @Autowired
     private BannerService bannerService;
+
+    @Autowired
+    public BannerController(Diana diana) {
+        this.diana = diana;
+    }
 
     /**
      * @description: 测试方法
