@@ -3,6 +3,7 @@ package com.ccarlos.ccmall.api.v1;
 import com.ccarlos.ccmall.service.BannerService;
 import com.ccarlos.ccmall.simple.hero.Diana;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +15,11 @@ import java.io.IOException;
  * @date: 2019/12/23 23:12
  */
 @RestController
+@Lazy
 @RequestMapping("/v1/banner")
 public class BannerController {
 
-    @Autowired(required = false)
+    @Autowired
     private Diana diana;
 
     @Autowired

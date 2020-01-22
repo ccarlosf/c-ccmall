@@ -1,5 +1,6 @@
 package com.ccarlos.ccmall.simple.hero;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,8 +8,18 @@ import org.springframework.stereotype.Component;
  * @author: Created by ccarlos
  * @date: 2019/12/26 22:04
  */
-//@Component
+@Component
+@Lazy
 public class Diana {
+
+    /**
+     * @description: 无参构造函数
+     * @author: ccarlos
+     * @date: 2020/1/22 11:52
+     */
+    public Diana(){
+        System.out.println("Hello,Diana");
+    }
 
     /**
      * @description: Diana技能Q
