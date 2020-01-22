@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @author: Created by ccarlos
  * @date: 2019/12/26 22:04
  */
-@Component
+//@Component
 public class Diana {
 
     /**

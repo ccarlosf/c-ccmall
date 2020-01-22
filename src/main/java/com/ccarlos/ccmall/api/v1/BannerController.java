@@ -17,7 +17,7 @@ import java.io.IOException;
 @RequestMapping("/v1/banner")
 public class BannerController {
 
-    @Autowired
+    @Autowired(required = false)
     private Diana diana;
 
     @Autowired
