@@ -1,5 +1,8 @@
 package com.ccarlos.ccmall.api.v1;
 
+import com.ccarlos.ccmall.service.BannerService;
+import com.ccarlos.ccmall.simple.hero.Diana;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +17,12 @@ import java.io.IOException;
 @RestController
 public class BannerController {
 
+    @Autowired
+    private Diana diana;
+
+    @Autowired
+    private BannerService bannerService;
+
     /**
      * @description: 测试方法
      * @author: ccarlos
@@ -27,6 +36,7 @@ public class BannerController {
     //url?version = v1
     @GetMapping("/v1/banner/test")
     public String test(HttpServletResponse response) throws IOException {
+        diana.r();
         return "Hello 商城后端";
     }
 }
