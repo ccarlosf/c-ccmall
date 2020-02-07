@@ -1,6 +1,7 @@
 package com.ccarlos.ccmall.api.v1;
 
 import com.ccarlos.ccmall.service.BannerService;
+import com.ccarlos.ccmall.simple.ISkill;
 import com.ccarlos.ccmall.simple.hero.Diana;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -19,15 +20,7 @@ import java.io.IOException;
 public class BannerController {
 
     @Autowired
-    private Diana diana;
-
-    @Autowired
-    private BannerService bannerService;
-
-    @Autowired
-    public BannerController(Diana diana) {
-        this.diana = diana;
-    }
+    private ISkill diana;
 
     /**
      * @description: 测试方法
