@@ -1,7 +1,6 @@
 package com.ccarlos.ccmall.simple.hero;
 
 import com.ccarlos.ccmall.simple.ISkill;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 /**

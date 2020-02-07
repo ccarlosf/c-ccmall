@@ -2,6 +2,7 @@ package com.ccarlos.ccmall.api.v1;
 
 import com.ccarlos.ccmall.simple.ISkill;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,8 @@ import java.io.IOException;
 public class BannerController {
 
     @Autowired
-    private ISkill iSkill;
+    @Qualifier("irelia")
+    private ISkill dina;
 
     /**
      * @description: 测试方法
@@ -34,7 +36,7 @@ public class BannerController {
     //url?version = v1
     @GetMapping("/test")
     public String test(HttpServletResponse response) throws IOException {
-        iSkill.r();
+        dina.r();
         return "Hello 商城后端";
     }
 }
