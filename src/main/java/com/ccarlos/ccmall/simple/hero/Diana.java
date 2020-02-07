@@ -11,12 +11,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Diana implements ISkill {
 
+    private String skillName = "Diana R";
+
     /**
      * @description: 无参构造函数
      * @author: ccarlos
      * @date: 2020/1/22 11:52
      */
-    public Diana(){
+    public Diana() {
         System.out.println("Hello,Diana");
     }
 
@@ -57,6 +59,6 @@ public class Diana implements ISkill {
      */
     @Override
     public void r() {
-        System.out.println("Diana R");
+        System.out.println(this.skillName);
     }
 }
