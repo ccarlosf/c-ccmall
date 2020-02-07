@@ -1,11 +1,10 @@
 package com.ccarlos.ccmall.api.v1;
 
-import com.ccarlos.ccmall.service.BannerService;
 import com.ccarlos.ccmall.simple.ISkill;
-import com.ccarlos.ccmall.simple.hero.Diana;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -20,7 +19,7 @@ import java.io.IOException;
 public class BannerController {
 
     @Autowired
-    private ISkill diana;
+    private ISkill iSkill;
 
     /**
      * @description: 测试方法
@@ -35,7 +34,7 @@ public class BannerController {
     //url?version = v1
     @GetMapping("/test")
     public String test(HttpServletResponse response) throws IOException {
-        diana.r();
+        iSkill.r();
         return "Hello 商城后端";
     }
 }
