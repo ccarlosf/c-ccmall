@@ -43,7 +43,7 @@ public class BannerController {
     @GetMapping("/test")
     public String test(HttpServletResponse response)  {
         iSkill.r();
-        throw new ForbiddenException(10001);
+        throw new ForbiddenException(10000);
 //        throw new Exception("这里错了");
 //        return "Hello 商城后端";
     }
