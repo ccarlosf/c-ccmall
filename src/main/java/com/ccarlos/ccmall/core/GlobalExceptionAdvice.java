@@ -1,7 +1,10 @@
 package com.ccarlos.ccmall.core;
 
 import com.ccarlos.ccmall.exception.http.HttpException;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,7 +46,17 @@ public class GlobalExceptionAdvice {
      * @return: void
      */
     @ExceptionHandler(HttpException.class)
-    public void handleHttpException(HttpServletRequest req, HttpException e){
-        System.out.println("hello");
+    public ResponseEntity<UnifyResponse> handleHttpException(HttpServletRequest req, HttpException e){
+        String requestUrl = req.getRequestURI();
+        String method = req.getMethod();
+
+//        ResponseEntity
+        UnifyResponse message = new UnifyResponse(e.getCode(),"XXXXX",method+" "+requestUrl);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpStatus httpStatus = HttpStatus.resolve(e.getHttpStatusCode());
+
+        ResponseEntity<UnifyResponse> r = new ResponseEntity<>(message,headers,httpStatus);
+        return r;
     }
 }

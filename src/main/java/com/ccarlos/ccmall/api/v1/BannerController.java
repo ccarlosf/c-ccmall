@@ -1,5 +1,6 @@
 package com.ccarlos.ccmall.api.v1;
 
+import com.ccarlos.ccmall.exception.http.ForbiddenException;
 import com.ccarlos.ccmall.exception.http.NotFoundException;
 import com.ccarlos.ccmall.simple.IConnect;
 import com.ccarlos.ccmall.simple.ISkill;
@@ -42,7 +43,7 @@ public class BannerController {
     @GetMapping("/test")
     public String test(HttpServletResponse response)  {
         iSkill.r();
-        throw new RuntimeException("23213123");
+        throw new ForbiddenException(10001);
 //        throw new Exception("这里错了");
 //        return "Hello 商城后端";
     }
