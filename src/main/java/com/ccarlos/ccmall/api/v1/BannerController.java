@@ -19,6 +19,7 @@ import java.io.IOException;
 @RequestMapping("/v1/banner")
 public class BannerController {
 
+
     @Autowired
 //    @Qualifier("irelia")
     private ISkill camile;
