@@ -39,9 +39,10 @@ public class BannerController {
     //header version:v1
     //url?version = v1
     @GetMapping("/test")
-    public String test(HttpServletResponse response) throws IOException {
-        iSkill.r();
-        return "Hello 商城后端";
+    public String test(HttpServletResponse response) throws Exception {
+//        iSkill.r();
+        throw  new Exception("这里错了");
+//        return "Hello 商城后端";
     }
 
     /**
