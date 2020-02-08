@@ -5,6 +5,11 @@ import com.ccarlos.ccmall.simple.hero.Irelia;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @description: Hero配置类
+ * @author: ccarlos
+ * @date: 2020/2/8 10:32
+ */
 @Configuration
 public class HeroConfiguration {
 
