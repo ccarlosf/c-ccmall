@@ -12,6 +12,25 @@ import org.springframework.stereotype.Component;
 public class Diana implements ISkill {
 
     private String skillName = "Diana R";
+    private String name;
+    private Integer age;
+
+    public Diana(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void setSkillName(String skillName) {
+        this.skillName = skillName;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
     /**
      * @description: 无参构造函数

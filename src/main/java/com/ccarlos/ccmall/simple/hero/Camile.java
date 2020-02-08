@@ -10,6 +10,13 @@ import com.ccarlos.ccmall.simple.ISkill;
 public class Camile implements ISkill {
 
     private String skillName = "Camile R";
+    private String name;
+    private Integer age;
+
+    public Camile(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
 
     /**
      * @description: 无参构造函数
