@@ -1,5 +1,6 @@
 package com.ccarlos.ccmall.core;
 
+import com.ccarlos.ccmall.exception.http.HttpException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -21,6 +22,19 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(value = Exception.class)
     public void handleException(HttpServletRequest req, Exception e) {
+        System.out.println("hello");
+    }
+    
+    /**
+     * @description: 处理通用异常
+     * @author: ccarlos
+     * @date: 2020/2/8 20:59
+     * @param: req 请求
+     * @param: e 异常
+     * @return: void
+     */
+    @ExceptionHandler(HttpException.class)
+    public void handleHttpException(HttpServletRequest req, HttpException e){
         System.out.println("hello");
     }
 }
