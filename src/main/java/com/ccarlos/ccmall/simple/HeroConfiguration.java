@@ -3,6 +3,7 @@ package com.ccarlos.ccmall.simple;
 import com.ccarlos.ccmall.simple.condtion.DianaCondition;
 import com.ccarlos.ccmall.simple.condtion.IreliaCondition;
 import com.ccarlos.ccmall.simple.hero.Camile;
+import com.ccarlos.ccmall.simple.hero.Diana;
 import com.ccarlos.ccmall.simple.hero.Irelia;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
@@ -25,7 +26,7 @@ public class HeroConfiguration {
     @Bean
     @Conditional(DianaCondition.class)
     public ISkill diana(){
-        return new Camile("Diana",18);
+        return new Diana("Diana",18);
     }
 
     /**

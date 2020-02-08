@@ -12,6 +12,8 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 public class DianaCondition implements Condition {
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
-        return false;
+        String name = conditionContext.getEnvironment().getProperty("hero.condition");
+        return "diana".equalsIgnoreCase(name);
+//        return name.equalsIgnoreCase("diana");
     }
 }
