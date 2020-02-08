@@ -1,5 +1,6 @@
 package com.ccarlos.ccmall.api.v1;
 
+import com.ccarlos.ccmall.simple.IConnect;
 import com.ccarlos.ccmall.simple.ISkill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,6 +24,9 @@ public class BannerController {
 //    @Qualifier("irelia")
     private ISkill camile;
 
+    @Autowired
+    private IConnect iConnect;
+
     /**
      * @description: 测试方法
      * @author: ccarlos
@@ -38,5 +42,16 @@ public class BannerController {
     public String test(HttpServletResponse response) throws IOException {
         camile.r();
         return "Hello 商城后端";
+    }
+
+    /**
+     * @description: 测试方法1
+     * @author: ccarlos
+     * @date: 2020/2/8 11:15
+     * @return: void
+     */
+    @GetMapping("/test1")
+    public void test1(){
+        iConnect.connect();;
     }
 }
