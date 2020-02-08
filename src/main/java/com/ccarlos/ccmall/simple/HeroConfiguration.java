@@ -5,6 +5,7 @@ import com.ccarlos.ccmall.simple.condtion.IreliaCondition;
 import com.ccarlos.ccmall.simple.hero.Camile;
 import com.ccarlos.ccmall.simple.hero.Diana;
 import com.ccarlos.ccmall.simple.hero.Irelia;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +25,8 @@ public class HeroConfiguration {
      * @return: com.ccarlos.ccmall.simple.ISkill
      */
     @Bean
-    @Conditional(DianaCondition.class)
+    @ConditionalOnProperty(value = "hero.condition", havingValue = "diana", matchIfMissing = true)
+//    @Conditional(DianaCondition.class)
     public ISkill diana(){
         return new Diana("Diana",18);
     }
@@ -36,7 +38,8 @@ public class HeroConfiguration {
      * @return: com.ccarlos.ccmall.simple.ISkill
      */
     @Bean
-    @Conditional(IreliaCondition.class)
+    @ConditionalOnProperty(value = "hero.condition", havingValue = "irelia")
+//    @Conditional(IreliaCondition.class)
     public ISkill irelia(){
         return new Irelia();
     }
