@@ -40,7 +40,7 @@ public class BannerController {
     //url?version = v1
     @GetMapping("/test")
     public String test(HttpServletResponse response) throws Exception {
-//        iSkill.r();
+        iSkill.r();
         throw  new Exception("这里错了");
 //        return "Hello 商城后端";
     }
@@ -51,8 +51,8 @@ public class BannerController {
      * @date: 2020/2/8 11:15
      * @return: void
      */
-    @GetMapping("/test1")
-    public void test1() {
+//    @GetMapping("/test1")
+//    public void test1() {
 //        iConnect.connect();
-    }
+//    }
 }
