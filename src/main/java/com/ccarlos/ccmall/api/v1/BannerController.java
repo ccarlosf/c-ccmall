@@ -3,7 +3,6 @@ package com.ccarlos.ccmall.api.v1;
 import com.ccarlos.ccmall.simple.IConnect;
 import com.ccarlos.ccmall.simple.ISkill;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,7 +50,7 @@ public class BannerController {
      * @return: void
      */
     @GetMapping("/test1")
-    public void test1(){
-        iConnect.connect();;
+    public void test1() {
+        iConnect.connect();
     }
 }
