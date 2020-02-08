@@ -40,9 +40,9 @@ public class BannerController {
     //header version:v1
     //url?version = v1
     @GetMapping("/test")
-    public String test(HttpServletResponse response) throws Exception {
+    public String test(HttpServletResponse response)  {
         iSkill.r();
-        throw new NotFoundException(10001);
+        throw new RuntimeException("23213123");
 //        throw new Exception("这里错了");
 //        return "Hello 商城后端";
     }

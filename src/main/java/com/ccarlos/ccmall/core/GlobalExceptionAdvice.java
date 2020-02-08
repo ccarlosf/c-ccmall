@@ -3,6 +3,7 @@ package com.ccarlos.ccmall.core;
 import com.ccarlos.ccmall.exception.http.HttpException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,8 +22,10 @@ public class GlobalExceptionAdvice {
      * @return: void
      */
     @ExceptionHandler(value = Exception.class)
-    public void handleException(HttpServletRequest req, Exception e) {
-        System.out.println("hello");
+    @ResponseBody
+    public UnifyResponse handleException(HttpServletRequest req, Exception e) {
+        UnifyResponse message = new UnifyResponse(9999,"服务器异常","url");
+        return message;
     }
     
     /**
