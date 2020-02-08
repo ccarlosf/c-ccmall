@@ -20,8 +20,8 @@ import java.io.IOException;
 public class BannerController {
 
     @Autowired
-    @Qualifier("irelia")
-    private ISkill dina;
+//    @Qualifier("irelia")
+    private ISkill camile;
 
     /**
      * @description: 测试方法
@@ -36,7 +36,7 @@ public class BannerController {
     //url?version = v1
     @GetMapping("/test")
     public String test(HttpServletResponse response) throws IOException {
-        dina.r();
+        camile.r();
         return "Hello 商城后端";
     }
 }
