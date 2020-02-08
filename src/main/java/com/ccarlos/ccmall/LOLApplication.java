@@ -1,5 +1,6 @@
 package com.ccarlos.ccmall;
 
+import com.ccarlos.ccmall.simple.EnableLOLConfiguration;
 import com.ccarlos.ccmall.simple.HeroConfiguration;
 import com.ccarlos.ccmall.simple.ISkill;
 import com.ccarlos.ccmall.simple.LOLConfigurationSelector;
@@ -10,7 +11,8 @@ import org.springframework.context.annotation.Import;
 
 //@ComponentScan
 //@Import(HeroConfiguration.class)
-@Import(LOLConfigurationSelector.class)
+//@Import(LOLConfigurationSelector.class)
+@EnableLOLConfiguration
 public class LOLApplication {
 
     public static void main(String[] args) {
