@@ -1,6 +1,7 @@
 package com.ccarlos.ccmall.simple.hero;
 
 import com.ccarlos.ccmall.simple.ISkill;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
  * @date: 2019/12/26 22:04
  */
 @Component
+//@Primary
 public class Diana implements ISkill {
 
     private String skillName = "Diana R";

@@ -19,7 +19,7 @@ public class HeroConfiguration {
      * @date: 2020/2/8 10:17
      * @return: com.ccarlos.ccmall.simple.ISkill
      */
-    @Bean
+//    @Bean
     public ISkill camile(){
         return new Camile("Camile",18);
     }
@@ -30,7 +30,7 @@ public class HeroConfiguration {
      * @date: 2020/2/8 10:17
      * @return: com.ccarlos.ccmall.simple.ISkill
      */
-    @Bean
+//    @Bean
     public ISkill irelia(){
         return new Irelia();
     }
