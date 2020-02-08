@@ -25,7 +25,7 @@ public class DatabaseConfiguration {
      * @date: 2020/2/8 10:34
      * @return: com.ccarlos.ccmall.simple.IConnect
      */
-    @Bean
+//    @Bean
     public IConnect mysql() {
         return new MySQL(ip, port);
     }

@@ -24,8 +24,8 @@ public class BannerController {
 //    @Qualifier("irelia")
     private ISkill iSkill;
 
-    @Autowired
-    private IConnect iConnect;
+//    @Autowired
+//    private IConnect iConnect;
 
     /**
      * @description: 测试方法
@@ -52,6 +52,6 @@ public class BannerController {
      */
     @GetMapping("/test1")
     public void test1() {
-        iConnect.connect();
+//        iConnect.connect();
     }
 }
