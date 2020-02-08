@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
  * @author: Created by ccarlos
  * @date: 2019/12/26 22:04
  */
-@Component
-@Primary
+//@Component
+//@Primary
 public class Irelia implements ISkill {
 
     /**

@@ -1,8 +1,11 @@
 package com.ccarlos.ccmall.simple;
 
+import com.ccarlos.ccmall.simple.condtion.DianaCondition;
+import com.ccarlos.ccmall.simple.condtion.IreliaCondition;
 import com.ccarlos.ccmall.simple.hero.Camile;
 import com.ccarlos.ccmall.simple.hero.Irelia;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -14,14 +17,15 @@ import org.springframework.context.annotation.Configuration;
 public class HeroConfiguration {
 
     /**
-     * @description: 实例化camile
+     * @description: 实例化diana
      * @author: ccarlos
      * @date: 2020/2/8 10:17
      * @return: com.ccarlos.ccmall.simple.ISkill
      */
-//    @Bean
-    public ISkill camile(){
-        return new Camile("Camile",18);
+    @Bean
+    @Conditional(DianaCondition.class)
+    public ISkill diana(){
+        return new Camile("Diana",18);
     }
 
     /**
@@ -30,7 +34,8 @@ public class HeroConfiguration {
      * @date: 2020/2/8 10:17
      * @return: com.ccarlos.ccmall.simple.ISkill
      */
-//    @Bean
+    @Bean
+    @Conditional(IreliaCondition.class)
     public ISkill irelia(){
         return new Irelia();
     }
