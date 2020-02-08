@@ -1,6 +1,8 @@
 package com.ccarlos.ccmall.core;
 
+import com.ccarlos.ccmall.core.configuration.ExceptionCodeConfiguration;
 import com.ccarlos.ccmall.exception.http.HttpException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,6 +21,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 public class GlobalExceptionAdvice {
+
+    @Autowired
+    private ExceptionCodeConfiguration codeConfiguration;
 
     /**
      * @description: 处理通用异常
@@ -51,7 +56,7 @@ public class GlobalExceptionAdvice {
         String method = req.getMethod();
 
 //        ResponseEntity
-        UnifyResponse message = new UnifyResponse(e.getCode(),"XXXXX",method+" "+requestUrl);
+        UnifyResponse message = new UnifyResponse(e.getCode(), codeConfiguration.getMessage(e.getCode()), method + " " + requestUrl);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpStatus httpStatus = HttpStatus.resolve(e.getHttpStatusCode());
