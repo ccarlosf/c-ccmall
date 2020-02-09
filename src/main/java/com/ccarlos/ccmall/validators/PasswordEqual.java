@@ -14,6 +14,10 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE,ElementType.FIELD})
 @Constraint(validatedBy = PasswordValidator.class)
 public @interface PasswordEqual {
+    int min() default 4;
+
+    int max() default 6;
+
     String message() default "password are not equal";
 
     Class<?>[] groups() default {};

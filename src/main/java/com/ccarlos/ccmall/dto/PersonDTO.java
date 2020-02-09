@@ -14,7 +14,7 @@ import javax.validation.constraints.Max;
  */
 @Builder
 @Getter
-@PasswordEqual
+@PasswordEqual(min = 1)
 //@Setter
 //@AllArgsConstructor
 //@NoArgsConstructor
