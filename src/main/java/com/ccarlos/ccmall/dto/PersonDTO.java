@@ -1,6 +1,10 @@
 package com.ccarlos.ccmall.dto;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
 
 /**
  * @description: 用户数据传输对象
@@ -17,23 +21,13 @@ import lombok.*;
 //@EqualsAndHashCode
 // equals hashCode toString
 public class PersonDTO {
-    @NonNull
+//    @NonNull
+    @Length(min=2,max = 10,message = "xxxxxx")
     private String name;
+
+//    @Max()
     private Integer age;
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public Integer getAge() {
-//        return age;
-//    }
-//
-//    public void setAge(Integer age) {
-//        this.age = age;
-//    }
+    @Valid
+    private SchoolDTO schoolDTO;
 }

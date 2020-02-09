@@ -47,7 +47,7 @@ public class BannerController {
     @PostMapping("/test/{id1}")
     public PersonDTO test(@PathVariable(name = "id1") @Range(min =1,max = 10,message = "不可以超过10噢") Integer id,
                        @RequestParam String name,
-                       @RequestBody PersonDTO person)  {
+                       @RequestBody @Validated PersonDTO person)  {
         iSkill.r();
 //        PersonDTO dto = new PersonDTO();
         PersonDTO dto = PersonDTO.builder()
