@@ -1,5 +1,6 @@
 package com.ccarlos.ccmall.dto;
 
+import com.ccarlos.ccmall.validators.PasswordEqual;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -13,6 +14,7 @@ import javax.validation.constraints.Max;
  */
 @Builder
 @Getter
+@PasswordEqual
 //@Setter
 //@AllArgsConstructor
 //@NoArgsConstructor
@@ -23,6 +25,7 @@ import javax.validation.constraints.Max;
 public class PersonDTO {
 //    @NonNull
     @Length(min=2,max = 10,message = "xxxxxx")
+//    @PasswordEqual
     private String name;
 
 //    @Max()
