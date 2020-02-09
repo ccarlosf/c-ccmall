@@ -1,5 +1,6 @@
 package com.ccarlos.ccmall.api.v1;
 
+import com.ccarlos.ccmall.dto.PersonDTO;
 import com.ccarlos.ccmall.exception.http.ForbiddenException;
 import com.ccarlos.ccmall.exception.http.NotFoundException;
 import com.ccarlos.ccmall.simple.IConnect;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * @description: Banner控制器
@@ -38,9 +40,10 @@ public class BannerController {
     //host:port/v1/banner/test
     //header version:v1
     //url?version = v1
-    @GetMapping("/test/{id1}")
+    @PostMapping("/test/{id1}")
     public String test(@PathVariable(name = "id1") Integer id,
-                       @RequestParam String name)  {
+                       @RequestParam String name,
+                       @RequestBody PersonDTO person)  {
         iSkill.r();
         throw new ForbiddenException(10000);
 //        throw new Exception("这里错了");
