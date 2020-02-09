@@ -41,7 +41,7 @@ public class BannerController {
     //header version:v1
     //url?version = v1
     @PostMapping("/test/{id1}")
-    public String test(@PathVariable(name = "id1") Integer id,
+    public PersonDTO test(@PathVariable(name = "id1") Integer id,
                        @RequestParam String name,
                        @RequestBody PersonDTO person)  {
         iSkill.r();
@@ -50,9 +50,9 @@ public class BannerController {
                 .name("9yue")
                 .age(18)
                 .build();
-        throw new ForbiddenException(10000);
+//        throw new ForbiddenException(10000);
 //        throw new Exception("这里错了");
-//        return "Hello 商城后端";
+        return dto;
     }
 
     /**
