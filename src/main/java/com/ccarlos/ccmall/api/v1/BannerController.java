@@ -45,7 +45,11 @@ public class BannerController {
                        @RequestParam String name,
                        @RequestBody PersonDTO person)  {
         iSkill.r();
-        PersonDTO dto = new PersonDTO(null,18);
+//        PersonDTO dto = new PersonDTO();
+        PersonDTO dto = PersonDTO.builder()
+                .name("9yue")
+                .age(18)
+                .build();
         throw new ForbiddenException(10000);
 //        throw new Exception("这里错了");
 //        return "Hello 商城后端";

@@ -7,11 +7,12 @@ import lombok.*;
  * @author: ccarlos
  * @date: 2020/2/9 14:21
  */
-@Getter
-@Setter
+@Builder
+//@Getter
+//@Setter
 //@AllArgsConstructor
-@RequiredArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
+//@RequiredArgsConstructor
 //@Data
 //@EqualsAndHashCode
 // equals hashCode toString
