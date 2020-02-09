@@ -5,9 +5,7 @@ import com.ccarlos.ccmall.exception.http.NotFoundException;
 import com.ccarlos.ccmall.simple.IConnect;
 import com.ccarlos.ccmall.simple.ISkill;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -40,8 +38,9 @@ public class BannerController {
     //host:port/v1/banner/test
     //header version:v1
     //url?version = v1
-    @GetMapping("/test")
-    public String test(HttpServletResponse response)  {
+    @GetMapping("/test/{id1}")
+    public String test(@PathVariable(name = "id1") Integer id,
+                       @RequestParam String name)  {
         iSkill.r();
         throw new ForbiddenException(10000);
 //        throw new Exception("这里错了");
