@@ -14,7 +14,7 @@ import javax.validation.constraints.Max;
  */
 @Builder
 @Getter
-@PasswordEqual(min = 1)
+@PasswordEqual(min = 1,message = "两次密码不相同")
 //@Setter
 //@AllArgsConstructor
 //@NoArgsConstructor

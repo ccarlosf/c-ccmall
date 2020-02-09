@@ -7,12 +7,15 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @description: 全局异常处理类
@@ -63,5 +66,41 @@ public class GlobalExceptionAdvice {
 
         ResponseEntity<UnifyResponse> r = new ResponseEntity<>(message,headers,httpStatus);
         return r;
+    }
+
+
+    /**
+     * @description: 处理Bean校验异常
+     * @author: ccarlos
+     * @date: 2020/2/9 21:03
+     * @param: req 请求
+     * @param: e 异常
+     * @return: org.springframework.http.ResponseEntity<com.ccarlos.ccmall.core.UnifyResponse>
+     */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    public UnifyResponse handleBeanValidation(HttpServletRequest req, MethodArgumentNotValidException e){
+        String requestUrl = req.getRequestURI();
+        String method = req.getMethod();
+
+        List<ObjectError> errors = e.getBindingResult().getAllErrors();
+        String message = formatAllErrorMessages(errors);
+
+        return new UnifyResponse(1001,message,method+ " "+requestUrl);
+    }
+
+    /**
+     * @description: 格式化Bean异常校验信息
+     * @author: ccarlos
+     * @date: 2020/2/9 21:10
+     * @param: errors 异常列表
+     * @return: java.lang.String
+     */
+    private String formatAllErrorMessages(List<ObjectError> errors){
+        StringBuffer errorMsg = new StringBuffer();
+        errors.forEach(error ->{
+            errorMsg.append(error.getDefaultMessage()).append(';');
+        });
+        return errorMsg.toString();
     }
 }
