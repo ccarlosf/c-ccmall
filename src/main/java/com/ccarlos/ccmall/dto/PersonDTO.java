@@ -1,9 +1,6 @@
 package com.ccarlos.ccmall.dto;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * @description: 用户数据传输对象
@@ -12,10 +9,14 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+//@AllArgsConstructor
+@RequiredArgsConstructor
+@NoArgsConstructor
 //@Data
 //@EqualsAndHashCode
 // equals hashCode toString
 public class PersonDTO {
+    @NonNull
     private String name;
     private Integer age;
 

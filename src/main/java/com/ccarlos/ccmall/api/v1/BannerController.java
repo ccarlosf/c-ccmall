@@ -45,6 +45,7 @@ public class BannerController {
                        @RequestParam String name,
                        @RequestBody PersonDTO person)  {
         iSkill.r();
+        PersonDTO dto = new PersonDTO(null,18);
         throw new ForbiddenException(10000);
 //        throw new Exception("这里错了");
 //        return "Hello 商城后端";
