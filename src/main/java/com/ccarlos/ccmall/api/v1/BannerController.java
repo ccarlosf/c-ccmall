@@ -5,6 +5,7 @@ import com.ccarlos.ccmall.exception.http.ForbiddenException;
 import com.ccarlos.ccmall.exception.http.NotFoundException;
 import com.ccarlos.ccmall.simple.IConnect;
 import com.ccarlos.ccmall.simple.ISkill;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -46,9 +47,9 @@ public class BannerController {
     //header version:v1
     //url?version = v1
     @PostMapping("/test/{id1}")
-    public PersonDTO test(@PathVariable(name = "id1") @Range(min =1,max = 10,message = "不可以超过10噢") Integer id,
-                       @RequestParam String name,
-                       @RequestBody @Validated PersonDTO person)  {
+    public PersonDTO test(@PathVariable(name = "id1") @Range(min = 1, max = 10, message = "不可以超过10噢") Integer id,
+                          @RequestParam @Length(min = 8) String name,
+                          @RequestBody @Validated PersonDTO person)  {
         iSkill.r();
 //        PersonDTO dto = new PersonDTO();
         PersonDTO dto = PersonDTO.builder()

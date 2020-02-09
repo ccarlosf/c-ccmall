@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @description: 全局异常处理类
@@ -78,15 +81,38 @@ public class GlobalExceptionAdvice {
      * @return: org.springframework.http.ResponseEntity<com.ccarlos.ccmall.core.UnifyResponse>
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseBody
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public UnifyResponse handleBeanValidation(HttpServletRequest req, MethodArgumentNotValidException e){
+    public UnifyResponse handleBeanValidation(HttpServletRequest req, MethodArgumentNotValidException e) {
         String requestUrl = req.getRequestURI();
         String method = req.getMethod();
 
         List<ObjectError> errors = e.getBindingResult().getAllErrors();
         String message = formatAllErrorMessages(errors);
 
-        return new UnifyResponse(1001,message,method+ " "+requestUrl);
+        return new UnifyResponse(1001, message, method + " " + requestUrl);
+    }
+
+    /**
+     * @description: 处理url参数校验 ConstraintViolationException 异常
+     * @author: ccarlos
+     * @date: 2020/2/9 21:20
+     * @param: req 请求
+     * @param: e 异常
+     * @return: com.ccarlos.ccmall.core.UnifyResponse
+     */
+    @ExceptionHandler(ConstraintViolationException.class)
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public UnifyResponse handelConstraintException(HttpServletRequest req, ConstraintViolationException e) {
+        String requestUrl = req.getRequestURI();
+        String method = req.getMethod();
+        String message = e.getMessage();
+
+        return new UnifyResponse(10001, message, method + " " + requestUrl);
+//        for(ConstraintViolation error:e.getConstraintViolations()){
+//            ConstraintViolation a = error;
+//        }
     }
 
     /**
@@ -96,7 +122,7 @@ public class GlobalExceptionAdvice {
      * @param: errors 异常列表
      * @return: java.lang.String
      */
-    private String formatAllErrorMessages(List<ObjectError> errors){
+    private String formatAllErrorMessages(List<ObjectError> errors) {
         StringBuffer errorMsg = new StringBuffer();
         errors.forEach(error ->{
             errorMsg.append(error.getDefaultMessage()).append(';');
