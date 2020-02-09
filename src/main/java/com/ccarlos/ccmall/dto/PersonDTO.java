@@ -28,6 +28,11 @@ public class PersonDTO {
 //    @Max()
     private Integer age;
 
-    @Valid
-    private SchoolDTO schoolDTO;
+//    @Valid
+//    private SchoolDTO schoolDTO;
+
+
+//    @PasswordEqual
+    private String password1;
+    private String password2;
 }
